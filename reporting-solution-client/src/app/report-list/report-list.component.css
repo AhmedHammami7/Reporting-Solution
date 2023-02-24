@@ -1,0 +1,49 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.my-table {
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.my-table th,
+.my-table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.my-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  color: #333;
+  padding-left: 30px
+  
+}
+mat-cell{
+  white-space: nowrap; /* Prevents text from wrapping to a new line */
+  overflow: hidden; /* Hides overflow content */
+  text-overflow: ellipsis; /* Displays an ellipsis when content is clipped */
+}
+.my-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.action-link {
+  display: flex;
+  align-items: center;
+}
+.mat-sort-header-arrow {
+  color: #333;
+}
+
+.mat-sort-header-arrow.material-icons:not(.mat-sort-header-sorted-descending) {
+  transform: rotate(180deg);
+}
+

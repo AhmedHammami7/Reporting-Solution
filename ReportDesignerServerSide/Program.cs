@@ -6,7 +6,6 @@ using Microsoft.OpenApi.Models;
 using DevExpress.XtraCharts;
 using ReportDesignerServerSide.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 

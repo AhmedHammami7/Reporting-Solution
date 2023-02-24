@@ -19,7 +19,7 @@ export class GenerationComponent  {
     @ViewChild('myDropDownList', { static: true })
     myDropDownList!: ElementRef;
     selectedFormat = 'pdf';
-    printUrl = this.appComponent.hostUrl;    
+    printUrl = this.appComponent?.hostUrl;    
     constructor(private sanitizer: DomSanitizer, private _http: HttpClient) {
     }
     onChange($event: any) {

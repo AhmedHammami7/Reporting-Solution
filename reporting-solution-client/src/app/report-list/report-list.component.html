@@ -1,0 +1,41 @@
+<div class="container text-center">
+
+  <div class="button-container">
+    <button mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add Report</button>
+  </div>
+  <br>
+  
+  
+
+  <table mat-table="auto" [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+    <th mat-header-cell mat-column="column1" *matHeaderCellDef mat-sort-header> Report ID </th>
+      <td mat-cell *matCellDef="let element">  {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell mat-column="column2" *matHeaderCellDef mat-sort-header> Report Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell mat-column="column3" *matHeaderCellDef mat-sort-header > Action </th>
+      <td mat-cell *matCellDef="let element" class="action-link"> 
+        <button mat-button color="primary" [routerLink]="['/designer']">Design</button> | 
+        <button mat-button color="green" (click)="openDialog('Update',element)">Edit</button> |
+        <button mat-button color="warn" (click)="openDialog('Delete',element)">Delete</button>  
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" mat-sort-header></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>

@@ -10,26 +10,44 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { GenerationComponent } from './generation/generation.component';
 import { ReportDesignerComponent } from './report-designer/report-designer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReportListComponent } from './report-list/report-list.component';
+//imports of angular material
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     GenerationComponent,
     ReportDesignerComponent,
+    ReportListComponent,
+    DialogBoxComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatInputModule,
     RouterModule.forRoot([
       { path: 'generation', component: GenerationComponent, pathMatch: 'full' },
       { path: 'designer', component: ReportDesignerComponent, pathMatch: 'full' },
 
     ]),
-    DxReportDesignerModule
+    DxReportDesignerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,ReportListComponent ]
 })
 export class AppModule { }
