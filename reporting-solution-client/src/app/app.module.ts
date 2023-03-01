@@ -42,7 +42,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     RouterModule.forRoot([
       { path: 'generation', component: GenerationComponent, pathMatch: 'full' },
       { path: 'designer', component: ReportDesignerComponent, pathMatch: 'full' },
-
+      { path: 'report-designer/:reportName', component: ReportDesignerComponent }
     ]),
     DxReportDesignerModule,
     BrowserAnimationsModule

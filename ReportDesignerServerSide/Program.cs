@@ -6,6 +6,7 @@ using Microsoft.OpenApi.Models;
 using DevExpress.XtraCharts;
 using ReportDesignerServerSide.Data;
 using Microsoft.EntityFrameworkCore;
+using ReportDesignerServerSide;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +43,8 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo{ Title="MyAPI",Version="v1"});
 });
 builder.Services.AddScoped<ReportStorageWebExtension, CustomReportStorageWebExtension>();
+builder.Services.AddScoped<IReportsManagementService, ReportsMangementService>();
+//builder.Services.AddSingleton<CustomReportStorageWebExtension>();
 //var ConnectionStringSettings = "Data Source=Application.db;Cache=Shared";
 builder.Services.AddDbContext<ReportDbContext>(options => options.UseSqlite("Data Source=./Data/reportsData.db"));
 // Add services to the container.

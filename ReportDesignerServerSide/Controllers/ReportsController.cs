@@ -1,28 +1,64 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.IO;
-using System.Linq;
+﻿using DevExpress.XtraPrinting.Native.LayoutAdjustment;
+using DevExpress.XtraReports.UI;
+using DevExpress.XtraReports.Web.Extensions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using ReportDesignerServerSide.Models;
+using ReportDesignerServerSide.Reports;
+using ReportDesignerServerSide.Services;
 
-[ApiController]
-[Route("api/files")]
-public class FilesController : ControllerBase
+namespace ReportDesignerServerSide.Controllers
 {
-    [HttpGet]
-    public IActionResult GetFilesInFolder(string folderPath)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ReportsController : ControllerBase
     {
-        if (string.IsNullOrEmpty(folderPath))
+        private readonly IReportsManagementService reportStorage;
+
+        public ReportsController(IReportsManagementService reportStorage)
         {
-            return BadRequest("Folder path is required.");
+            this.reportStorage = reportStorage;
         }
-
-        var directoryPath = Path.Combine(Directory.GetCurrentDirectory(), folderPath);
-
-        if (!Directory.Exists(directoryPath))
+        [HttpPost]
+        public ActionResult AddReport([FromBody] JObject json)
         {
-            return BadRequest("Invalid folder path.");
+            Random rnd = new Random();
+            // Get the report layout data and other information from the form data
+            XtraReport report = new XtraReport1();
+            using var stream = new MemoryStream(); report.SaveLayoutToXml(stream);
+            var name = Guid.NewGuid().ToString();
+            var displayName = json["displayName"].ToString();
+
+            // Generate a new ID for the report
+            var layoutData = stream.ToArray();
+            // Add the new report to the report storage
+            reportStorage.AddReport(layoutData, name, displayName);
+
+            // Return a success message
+            return Ok("Report added successfully.");
         }
+        [HttpGet]
+        public ActionResult<List<Models.ReportItemDTO>> Get() { 
 
-        var fileNames = Directory.GetFiles(directoryPath).Select(Path.GetFileName).ToList();
+            List<ReportItemDTO> result =new List<ReportItemDTO>();
 
-        return Ok(fileNames);
+          var  resultx = reportStorage.GetReportsList().Select(x =>
+            {
+                return new ReportItemDTO
+                {
+                    Name = x.Name,
+                    DisplayName = x.DisplayName,
+                };
+            }).ToList();
+        
+            return resultx ;
+        }
+        [HttpDelete("{reportName}")]
+        public ActionResult Delete(string reportName)
+        {
+            reportStorage.DeleteReport(reportName);
+            return Ok("Report deleted successfully.");
+        }
     }
 }

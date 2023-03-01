@@ -42,7 +42,7 @@ namespace ReportDesignerServerSide.Services
             // This method is called if the **IsValidUrl** method returns **true**.
             // You can use the **GetData** method to process report parameters sent from the client
             // if the parameters are included in the report URL's query string.
-            var reportsData = DbContext.Reports.ToList();
+            //var reportsData = DbContext.Reports.ToList();
             var reportData = DbContext.Reports.FirstOrDefault(x => x.Name == url);
             if (reportData != null)
             {
@@ -73,6 +73,7 @@ namespace ReportDesignerServerSide.Services
 
         public override void SetData(XtraReport report, string url)
         {
+
             // Saves the specified report to the report storage with the specified name
             // (saves existing reports only). 
             using var stream = new MemoryStream(); report.SaveLayoutToXml(stream);
@@ -90,11 +91,20 @@ namespace ReportDesignerServerSide.Services
 
         public override string SetNewData(XtraReport report, string defaultUrl)
         {
+            defaultUrl= Guid.NewGuid().ToString();
+
             // Allows you to validate and correct the specified name (URL).
             // This method also allows you to return the resulting name (URL),
             // and to save your report to a storage. The method is called only for new reports.
             SetData(report, defaultUrl);
             return defaultUrl;
         }
+        /*public IEnumerable<string> GetReportsList()
+        {
+            var reportNames = DbContext.Reports.Select(r => r.Name);
+            var predefinedReportNames = ReportsFactory.Reports.Keys;
+
+            return reportNames.Union(predefinedReportNames);
+        }*/
     }
 }
