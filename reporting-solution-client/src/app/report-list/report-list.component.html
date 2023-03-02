@@ -1,7 +1,7 @@
 <div class="container text-center">
 
   <div class="button-container">
-    <button mat-button (click)="openDialog('Add',{})" mat-flat-button color="primary">Add Report</button>
+    <button mat-button (click)="openDialog('Add',{})" mat-flat-button  style="background-color:#253561; color:#fbaf30; border-radius: 20px;">Add Report</button>
   </div>
   <br>
   
@@ -29,9 +29,9 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell mat-column="column3" *matHeaderCellDef mat-sort-header > Action </th>
       <td mat-cell *matCellDef="let element" class="action-link"> 
-        <button mat-button color="primary" (click)="loadName(element.name)" >Design</button> | 
+        <button mat-button style="color:#253561;" (click)="loadName(element.name)" >Design</button> | 
         <!-- <button mat-button color="green" (click)="openDialog('Update',element)">Edit</button> | -->
-        <button mat-button color="warn" (click)="openDialog('Delete',element)">Delete</button>  
+        <button mat-button style="color:#fbaf30;" (click)="openDialog('Delete',element)">Delete</button>  
       </td>
     </ng-container>
 

@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ActionId } from 'devexpress-reporting/dx-reportdesigner'
 
 @Component({
   selector: 'app-report-designer',
@@ -29,6 +30,18 @@ export class ReportDesignerComponent implements OnInit {
   reportName="";
   host = 'https://localhost:7021/';
   
+   CustomizeMenuActions(event:any) {
+     // Hide the "NewReport" and "OpenReport" actions. 
+     var newreportAction = event.args.GetById(ActionId.NewReport);
+      if (newreportAction)
+         newreportAction.visible = false;
+    var saveAction = event.args.GetById(ActionId.Save);
+      if (saveAction)
+          saveAction.visible = false;
+     var openAction = event.args.GetById(ActionId.OpenReport);
+      if (openAction)
+         openAction.visible = false;
+ }
   //reportList: { [key: string]: string }[] = [];
   ngOnInit(): void {
     this.route.params.subscribe(params => {

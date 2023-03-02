@@ -1,9 +1,10 @@
-<header>
+<header >
   <nav
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
-    <div class="container-fluid">
-      <a class="navbar-brand" [routerLink]="['/']">Sioth Reporting Solution</a>
+    <div class="container-fluid"  >
+      <img class="light-logo" src="https://integrationobjects.com/images/2022/06/logo.webp" alt="integration-objects" loading="”lazy”" fetchpriority="high">
+      <a class="navbar-brand" [routerLink]="['/']">&nbsp;&nbsp;&nbsp;Sioth Reporting Solution</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -21,10 +22,10 @@
       >
         <ul class="navbar-nav flex-grow">
           <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }" >
-            <a class="nav-link text-dark" [routerLink]="['/designer']">Report Designer</a>
+            <a class="nav-link " [routerLink]="['/designer']">Report Designer</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }" >
-            <a class="nav-link text-dark" [routerLink]="['/generation']">Report Generation</a>
+            <a class="nav-link " [routerLink]="['/generation']">Report Generation</a>
           </li>
         </ul>
       </div>

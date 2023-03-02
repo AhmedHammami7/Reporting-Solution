@@ -36,7 +36,7 @@ namespace ReportDesignerServerSide.Controllers
             reportStorage.AddReport(layoutData, name, displayName);
 
             // Return a success message
-            return Ok("Report added successfully.");
+            return Ok();
         }
         [HttpGet]
         public ActionResult<List<Models.ReportItemDTO>> Get() { 
@@ -58,7 +58,7 @@ namespace ReportDesignerServerSide.Controllers
         public ActionResult Delete(string reportName)
         {
             reportStorage.DeleteReport(reportName);
-            return Ok("Report deleted successfully.");
+            return Ok();
         }
     }
 }

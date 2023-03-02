@@ -4,6 +4,7 @@
   justify-content: flex-start;
   margin-left: 20px;
 }
+
 @import '~bootstrap/dist/css/bootstrap.min.css';
 .my-table {
   width: 100%;

@@ -22,7 +22,7 @@ namespace ReportDesignerServerSide.Controllers
         }
         [HttpGet("[action]")]
         public ActionResult Export(string format = "pdf")
-        {
+        {   
             format = format.ToLower();
             XtraReport report = new test();
             string contentType = string.Format("application/{0}", format);
