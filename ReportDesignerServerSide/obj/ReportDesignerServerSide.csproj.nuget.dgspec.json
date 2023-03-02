@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ahmed\\Desktop\\Ahmed\\Reporting-Solution\\ReportDesignerServerSide\\ReportDesignerServerSide.csproj": {}
+    "C:\\Users\\ahmed\\Desktop\\Reporting-Solution\\ReportDesignerServerSide\\ReportDesignerServerSide.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ahmed\\Desktop\\Ahmed\\Reporting-Solution\\ReportDesignerServerSide\\ReportDesignerServerSide.csproj": {
+    "C:\\Users\\ahmed\\Desktop\\Reporting-Solution\\ReportDesignerServerSide\\ReportDesignerServerSide.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ahmed\\Desktop\\Ahmed\\Reporting-Solution\\ReportDesignerServerSide\\ReportDesignerServerSide.csproj",
+        "projectUniqueName": "C:\\Users\\ahmed\\Desktop\\Reporting-Solution\\ReportDesignerServerSide\\ReportDesignerServerSide.csproj",
         "projectName": "ReportDesignerServerSide",
-        "projectPath": "C:\\Users\\ahmed\\Desktop\\Ahmed\\Reporting-Solution\\ReportDesignerServerSide\\ReportDesignerServerSide.csproj",
+        "projectPath": "C:\\Users\\ahmed\\Desktop\\Reporting-Solution\\ReportDesignerServerSide\\ReportDesignerServerSide.csproj",
         "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ahmed\\Desktop\\Ahmed\\Reporting-Solution\\ReportDesignerServerSide\\obj\\",
+        "outputPath": "C:\\Users\\ahmed\\Desktop\\Reporting-Solution\\ReportDesignerServerSide\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",

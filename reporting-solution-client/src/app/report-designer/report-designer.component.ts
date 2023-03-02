@@ -29,16 +29,18 @@ export class ReportDesignerComponent implements OnInit {
   reportName="";
   host = 'https://localhost:7021/';
   
-  reportList: { [key: string]: string }[] = [];
+  //reportList: { [key: string]: string }[] = [];
   ngOnInit(): void {
-    /*this.route.params.subscribe(params => {
-      this.reportName = params['name'];
-    });*/
-    this.http.get<{ [key: string]: string }[]>(`${this.host}api/Reports`)
-      .subscribe(data => {
-        const report = data[0];
-        this.reportName = report[1];
-      });
+    this.route.params.subscribe(params => {
+      this.reportName = params['reportName'];
+      console.log(params);
+      
+    });
+    // this.http.get<{ [key: string]: string }[]>(`${this.host}api/Reports`)
+    //   .subscribe(data => {
+    //     const report = data[0];
+    //     this.reportName = report[1];
+    //   });
   }
 
 }

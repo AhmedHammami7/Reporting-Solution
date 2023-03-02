@@ -7,7 +7,7 @@
   
   
 
-  <table mat-table="auto" [dataSource]="dataSource" #mytable class="my-table mat-elevation-z8">
+  <table #mytable  mat-table="auto" [dataSource]="dataSource"  class="my-table mat-elevation-z8">
     datasource
 
     <!--- Note that these columns can be defined in any order.
@@ -29,8 +29,8 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell mat-column="column3" *matHeaderCellDef mat-sort-header > Action </th>
       <td mat-cell *matCellDef="let element" class="action-link"> 
-        <button mat-button color="primary" [routerLink]="['/report-designer', element.name]">Design</button> | 
-        <button mat-button color="green" (click)="openDialog('Update',element)">Edit</button> |
+        <button mat-button color="primary" (click)="loadName(element.name)" >Design</button> | 
+        <!-- <button mat-button color="green" (click)="openDialog('Update',element)">Edit</button> | -->
         <button mat-button color="warn" (click)="openDialog('Delete',element)">Delete</button>  
       </td>
     </ng-container>

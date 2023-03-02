@@ -1,6 +1,7 @@
 //dialog-box.component.ts
 import { Component, Inject, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ChangeDetectorRef } from '@angular/core';
 
 export interface UsersData {
   name: string;
@@ -19,6 +20,7 @@ export class DialogBoxComponent {
   local_data:any;
 
   constructor(
+    private cd: ChangeDetectorRef,
     public dialogRef: MatDialogRef<DialogBoxComponent>,
     //@Optional() is used to prevent error if no data is passed
     @Optional() @Inject(MAT_DIALOG_DATA) public data: UsersData) {
@@ -29,6 +31,7 @@ export class DialogBoxComponent {
 
   doAction(){
     this.dialogRef.close({event:this.action,data:this.local_data});
+    this.cd.detectChanges();
   }
 
   closeDialog(){
